@@ -1,30 +1,24 @@
-// import type { Extension } from "@codemirror/state";
-// import { Snippet } from "@prisma/client";
+import type { Extension } from "@codemirror/state";
+import { Snippet } from "@prisma/client";
 
-export type Choice = {
-//   id: string;
+export type ChoiceDefinition = {
+  id: string;
   label: string;
   class: string;
 };
 
-export type GradientBackground = {
-    name:string,
-    class:string
-}
-
-
-
 export type ThemeDefinition = {
+  class: string;
   id: string;
   label: string;
   baseColors: string[];
 };
 
-// export type LanguageDefinition = {
-//   id: string;
-//   label: string;
-//   extension: () => Promise<Extension>;
-// };
+export type LanguageDefinition = {
+  id: string;
+  label: string;
+  extension: () => Promise<Extension>;
+};
 
 export type FontDefinition = {
   id: string;
@@ -52,39 +46,39 @@ export type AppStatus = {
   hasCustomTheme: boolean;
 };
 
-// export type AppState = {
-//   id: string | null;
-//   title: string | null;
-//   code: string | null;
-//   language: LanguageDefinition;
-//   theme: ThemeDefinition;
-//   fontFamily: FontDefinition;
-//   fontSize: string;
-//   lineNumbers: boolean;
-//   padding: string;
-//   customColors: string[];
-//   colorMode: any;
-//   angle: number;
-//   grain: boolean;
-// };
+export type AppState = {
+  id: string | null;
+  title: string | null;
+  code: string | null;
+  language: LanguageDefinition;
+  theme: ThemeDefinition;
+  fontFamily: FontDefinition;
+  fontSize: string;
+  lineNumbers: boolean;
+  padding: string;
+  customColors: string[];
+  colorMode: any;
+  angle: number;
+  grain: boolean;
+};
 
-// export interface Store extends AppStatus, AppState {
-//   update: <
-//     T extends string,
-//     V extends
-//       | string
-//       | number
-//       | boolean
-//       | LanguageDefinition
-//       | ThemeDefinition
-//       | FontDefinition
-//   >(
-//     type: T,
-//     value: V
-//   ) => void;
-//   setAppState: (snippet: Snippet) => void;
-//   getAppState: () => AppState;
-//   setCustomColor: (c: string, i: number) => void;
-//   addCustomColor: (c: string) => void;
-//   removeCustomColor: (i: number) => void;
-// }
+export interface Store extends AppStatus, AppState {
+  update: <
+    T extends string,
+    V extends
+      | string
+      | number
+      | boolean
+      | LanguageDefinition
+      | ThemeDefinition
+      | FontDefinition
+  >(
+    type: T,
+    value: V
+  ) => void;
+  setAppState: (snippet: Snippet) => void;
+  getAppState: () => AppState;
+  setCustomColor: (c: string, i: number) => void;
+  addCustomColor: (c: string) => void;
+  removeCustomColor: (i: number) => void;
+}

@@ -1,14 +1,47 @@
-import Code from '@/components/Code'
-import Image from 'next/image'
+import Code from "@/components/Code";
+import Settings from "@/components/Settings";
+import Image from "next/image";
+import {
+  Fira_Code,
+  Inconsolata,
+  Inter,
+  JetBrains_Mono,
+  Source_Code_Pro,
+} from "next/font/google";
+import clsx from "clsx";
+import { getSession } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import Editor from "@/components/Editor";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-export default function Home() {
-  return (
-  <>
-    <div className='h-full flex  items-center justify-center flex-col gap-6'>
-      <h1 className='text-4xl '>Code Share</h1>
-      <Code  />
-    </div>
-  </>
-  )
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-fira-code",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
+
+const inconsolata = Inconsolata({
+  subsets: ["latin"],
+  variable: "--font-inconsolata",
+});
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ["latin"],
+  variable: "--font-source-code-pro",
+});
+
+export default async function Home() {
+  const session = await getSession();
+
+  const isAuthenticated = !!session;
+
+  if (session) {
+    redirect("/dashboard");
+  }
+  return <Editor editable={true} isAuthenticated={isAuthenticated} />;
 }
