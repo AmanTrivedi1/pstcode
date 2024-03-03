@@ -6,6 +6,8 @@ import GithubProvider from "next-auth/providers/github";
 
 const isProd = process.env.NODE_ENV === "production";
 
+
+// For Auto Deployment
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
