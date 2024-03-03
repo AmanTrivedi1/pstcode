@@ -82,11 +82,6 @@ export default function Button({ snippetCount }: { snippetCount: number }) {
   );
 
   return (
-    <>
-   <div>
-    <div>
-    
-    </div>
     <button
       type="button"
       onClick={() => handleAction()}
@@ -110,7 +105,5 @@ export default function Button({ snippetCount }: { snippetCount: number }) {
         {buttons[buttonState].text}
       </div>
     </button>
-    </div>
-    </>
   );
 }

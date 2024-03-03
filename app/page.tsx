@@ -3,6 +3,7 @@ import Settings from "@/components/Settings";
 import Image from "next/image";
 import {
   Fira_Code,
+  IBM_Plex_Mono,
   Inconsolata,
   Inter,
   JetBrains_Mono,
@@ -34,6 +35,12 @@ const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
   variable: "--font-source-code-pro",
 });
+
+// const ibmPlexMono = IBM_Plex_Mono({
+//   weight: ["400"],
+//   style: ["normal", "italic"],
+//   variable: "--font-ibm-plex-mono",
+// });
 
 export default async function Home() {
   const session = await getSession();

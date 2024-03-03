@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/cn";
-import Image from 'next/image'
-import {  GaugeCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -14,16 +13,6 @@ export default function Home() {
   const { status: sessionStatus } = useSession();
 
   return (
-    <>
-    <div className="flex  items-center justify-start">
-    <div>
-    <Image
-      src="/logo.svg"
-      width={160}
-      height={30}
-      alt="Picture of the author"
-    />
-    </div>
     <div>
       <Link
         href="/dashboard"
@@ -38,7 +27,7 @@ export default function Home() {
         )}
       >
         <div className={cn("flex items-center gap-2")}>
-          <GaugeCircle
+          <ArrowLeft
             size={16}
             className={cn(
               "translate-x-0.5",
@@ -49,10 +38,9 @@ export default function Home() {
           />
           Dashboard
         </div>
+
         <Kbd keys={["B"]} />
       </Link>
     </div>
-    </div>
-    </>
   );
 }

@@ -6,13 +6,13 @@ export default function Social() {
   const links = [
     {
       id: "github",
-      href: "https://github.com/AmanTrivedi1",
+      href: "",
       icon: (props: LucideProps) => <Github {...props} aria-hidden="true" />,
       label: "Github",
     },
     {
       id: "twitter",
-      href: "https://twitter.com/Aman_trivedi10",
+      href: "",
       icon: (props: LucideProps) => <Twitter {...props} aria-hidden="true" />,
       label: "Twitter",
     },
@@ -28,10 +28,10 @@ export default function Social() {
             target="_blank"
             rel="noreferrer"
             className={cn(
-              "rounded-kg p-2 ",
+              "rounded-kg p-2",
               "select-none outline-none",
               "transition-all duration-100 ease-in-out",
-              "hover:cursor-pointer rounded-full hover:bg-white/20 hover:text-almost-white",
+              "hover:cursor-ne-resize hover:bg-white/20 hover:text-almost-white",
               "focus:text-almost-white focus:outline-1 focus:outline-offset-2 focus:outline-almost-white"
             )}
             aria-label={`social-link-${id}`}
@@ -44,7 +44,7 @@ export default function Social() {
 
       <div
         className={cn(
-          "absolute right-0  top-0 h-full w-px",
+          "absolute right-0 top-0 h-full w-px",
           "bg-gradient-to-b from-transparent via-white/20 to-transparent"
         )}
       />

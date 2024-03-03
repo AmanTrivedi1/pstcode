@@ -8,7 +8,6 @@ export type ChoiceDefinition = {
 };
 
 export type ThemeDefinition = {
-  class: string;
   id: string;
   label: string;
   baseColors: string[];
