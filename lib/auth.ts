@@ -1,10 +1,11 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import {
   GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
 } from "next";
 import { Session, getServerSession } from "next-auth";
+import { authOptions } from "./authOptions";
 
 export async function getSession(
   req?: NextApiRequest | GetServerSidePropsContext["req"],
